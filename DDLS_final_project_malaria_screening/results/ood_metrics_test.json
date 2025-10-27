@@ -1,0 +1,10 @@
+{
+  "temperature_T": 0.76731,
+  "threshold": 0.863425,
+  "n_test_id": 5481,
+  "n_test_ood": 5481,
+  "auroc_id_vs_ood": 0.833024,
+  "tpr_id_at_tau": 0.945083,
+  "tnr_ood_at_95pct_tpr": 0.374932,
+  "notes": "ID positive class; score = MSP; \u03c4 chosen on validation as 5th percentile of ID MSP."
+}

@@ -1,0 +1,13 @@
+{
+  "split": "test",
+  "n_total": 5481,
+  "coverage": 0.895639,
+  "n_kept": 4909,
+  "n_abstained": 572,
+  "accuracy_kept": 0.994704,
+  "baseline_accuracy_no_abstention": 0.965882,
+  "accuracy_gain_vs_baseline": 0.028821,
+  "delta": 0.0,
+  "sigma_thr": 0.055,
+  "threshold_used": 0.224896
+}

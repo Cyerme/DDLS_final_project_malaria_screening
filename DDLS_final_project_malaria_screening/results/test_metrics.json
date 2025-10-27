@@ -1,0 +1,38 @@
+{
+  "dataset": "test",
+  "n_examples": 5481,
+  "temperature_T": 0.76731,
+  "operating_point": {
+    "source": "validation",
+    "mode": "sens_at_spec",
+    "target_specificity": 0.95,
+    "threshold": 0.224896,
+    "test_sensitivity": 0.980889,
+    "test_specificity": 0.943478,
+    "confusion_matrix": {
+      "tp": 2669,
+      "tn": 2604,
+      "fp": 156,
+      "fn": 52
+    }
+  },
+  "discrimination": {
+    "auc_uncalibrated": 0.99411,
+    "auc_calibrated": 0.99411
+  },
+  "calibration": {
+    "ece_uncalibrated": 0.026017,
+    "ece_calibrated": 0.008858,
+    "nll_uncalibrated": 0.098695,
+    "nll_calibrated": 0.088393,
+    "brier_uncalibrated": 0.023861,
+    "brier_calibrated": 0.023509,
+    "n_bins": 10
+  },
+  "artifacts": {
+    "roc_png": "C:\\Users\\Thund\\Downloads\\DDLS_final_project\\results\\roc_test.png",
+    "reliability_diagram_png": "C:\\Users\\Thund\\Downloads\\DDLS_final_project\\results\\reliability_diagram_test.png",
+    "ece_bins_csv": "C:\\Users\\Thund\\Downloads\\DDLS_final_project\\results\\ece_bins_test.csv",
+    "operating_point_val_json": "C:\\Users\\Thund\\Downloads\\DDLS_final_project\\results\\operating_point_val.json"
+  }
+}

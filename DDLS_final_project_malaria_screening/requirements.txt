@@ -1,0 +1,18 @@
+Python 3.11
+--index-url https://download.pytorch.org/whl/cu121
+torch
+torchvision
+torchaudio
+numpy
+pandas
+pillow
+scikit-learn
+matplotlib
+tqdm
+jupyter
+ipykernel
+pip wheel setuptools
+fastapi
+uvicorn==0.30.*
+starlette
+python-multipart

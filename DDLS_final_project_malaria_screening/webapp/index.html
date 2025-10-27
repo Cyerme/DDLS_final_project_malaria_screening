@@ -1,0 +1,62 @@
+<!-- webapp/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Malaria Thin-Smear Screening (Local)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 20px; }
+    header { margin-bottom: 12px; }
+    .bar { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    .hint { color:#666; font-size:0.9rem; }
+    #results { margin-top: 20px; display:grid; grid-template-columns: repeat(auto-fill,minmax(320px,1fr)); gap:16px; }
+    .card { border:1px solid #ddd; border-radius:8px; padding:12px; box-shadow:0 1px 2px rgba(0,0,0,0.06); }
+    .imgrow { display:flex; gap:8px; align-items:center; }
+    .imgrow img { width:140px; height:140px; object-fit:cover; border-radius:6px; border:1px solid #eee; }
+    .kv { margin: 6px 0; }
+    .kv span { display:inline-block; min-width:140px; color:#333; }
+    .flag { display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.8rem; margin-right:6px; }
+    .flag.pos { background:#ffe8e8; color:#a90000; }
+    .flag.neg { background:#e8f6ff; color:#004a8b; }
+    .flag.abstain { background:#fff4d6; color:#8a5a00; }
+    .flag.ood { background:#f0e8ff; color:#5a00a9; }
+    footer { margin-top: 30px; color:#555; font-size:0.9rem; }
+    details { margin-top: 18px; }
+    code { background:#f7f7f7; padding:0 4px; border-radius:4px; }
+    button { padding:8px 14px; border-radius:6px; border:1px solid #bbb; background:#fafafa; cursor:pointer; }
+    button:hover { background:#f0f0f0; }
+    input[type=file] { padding:8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Malaria Thin-Smear Screening — Local Demo</h2>
+    <div class="hint">Loads your fine-tuned MobileNetV2 with calibrated probabilities, TTA-based abstention, MSP OOD flag, and Grad-CAM overlays.</div>
+  </header>
+
+  <section class="bar">
+    <input id="fileInput" type="file" multiple accept="image/png,image/jpeg"/>
+    <button id="runBtn">Run analysis</button>
+    <div id="cfg" class="hint"></div>
+  </section>
+
+  <div id="results"></div>
+
+  <details>
+    <summary><b>About the model & figures</b></summary>
+    <p>Threshold and temperature were selected on the validation set (Step 16). The abstention rule was tuned on validation coverage (Step 18). OOD MSP threshold was set at 95% TPR on validation (Step 19). Grad-CAM uses the last conv block (Step 21).</p>
+    <div class="imgrow" style="margin-top:10px;">
+      <figure><img id="rocFig" alt="ROC (test)"/><figcaption>ROC — test</figcaption></figure>
+      <figure><img id="relFig" alt="Reliability (test)"/><figcaption>Reliability — test</figcaption></figure>
+      <figure><img id="gcamFig" alt="Grad-CAM panel"/><figcaption>Grad-CAM panel</figcaption></figure>
+    </div>
+  </details>
+
+  <footer>
+    <p><b>Safety note:</b> this tool is for decision support and education. It is not a diagnostic device. Results depend on image quality and are calibrated only within the distribution of the training dataset. Uncertain or OOD inputs should be deferred to expert microscopy.</p>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
